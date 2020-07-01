@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "./Forum.css";
 
-function ForumBox() {
-  return <div className="ForumBox">forum box</div>;
+function ForumBox({ forumInfo }) {
+  return <div className="forum_box">{forumInfo.title}</div>;
 }
 
 export default ForumBox;

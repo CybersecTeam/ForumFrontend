@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
-import ForumList from "./Components/Forum/ForumList";
-
+import ForumPage from "./Pages/ForumPage/ForumPage";
+import Navbar from "Components/Navbar/Navbar";
 function App() {
   const dummieRequest = () => {
     const dummieData = {
@@ -29,8 +29,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <ForumList />
+      <Navbar></Navbar>
+      <ForumPage />
     </div>
   );
 }

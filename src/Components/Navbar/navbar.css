@@ -1,0 +1,11 @@
+.navbar {
+  background-color: white;
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  color: #202020;
+  justify-content: flex-start;
+  font-size: 2rem;
+  font-family: "Ubuntu-Bold";
+  padding: 2rem;
+}
