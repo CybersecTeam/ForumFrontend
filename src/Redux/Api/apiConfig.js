@@ -8,4 +8,5 @@ const instance = axios.create({
 
 export { instance };
 
-export const ROOT_URL = process.env.REACT_APP_API_URL;
+export const ROOT_URL =
+  "http://m6s3hmeie7hxjdhe4lwpb4jf7xwpjftm6ezbz5mfpiwj4w2fshj35uad.onion:81/api/";

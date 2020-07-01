@@ -1,4 +1,5 @@
-import React, { useSelector, useState } from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 import "./Forum.css";
 
