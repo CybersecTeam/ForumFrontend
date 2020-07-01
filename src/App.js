@@ -12,7 +12,7 @@ function App() {
     };
     axios
       .post(
-        "http://m6s3hmeie7hxjdhe4lwpb4jf7xwpjftm6ezbz5mfpiwj4w2fshj35uad.onion:81/api",
+        "http://m6s3hmeie7hxjdhe4lwpb4jf7xwpjftm6ezbz5mfpiwj4w2fshj35uad.onion:81/api/forum",
         dummieData,
         {
           // receive two    parameter endpoint url ,form data
