@@ -8,7 +8,7 @@ export default (props) => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <Modal visible={true}>
+    <Modal {...props}>
       <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
         <Form.Item label="Title">
           <Input />
