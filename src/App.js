@@ -4,6 +4,7 @@ import "./App.css";
 import axios from "axios";
 import ForumPage from "./Pages/ForumPage/ForumPage";
 import Navbar from "Components/Navbar/Navbar";
+import "antd/dist/antd.css";
 function App() {
   const dummieRequest = () => {
     const dummieData = {
