@@ -10,14 +10,22 @@ function ForumList() {
 
   const renderForumList = () => {
     const renderedForumList = [];
-    forumList.forEach((forumInfo) => {
-      renderedForumList.push(<ForumBox forumInfo={forumInfo}></ForumBox>);
+    forumList.forEach((forumInfo, index) => {
+      renderedForumList.push(
+        <ForumBox forumInfo={forumInfo} index={index}></ForumBox>
+      );
     });
     return renderedForumList;
   };
 
   const renderedForumList = renderForumList();
-  return <div className="forumList">{renderedForumList}</div>;
+  return (
+    <div className="forumList">
+      <div className="title">Forums</div>
+      <div className="description">Select a forum</div>
+      {renderedForumList}
+    </div>
+  );
 }
 
 export default ForumList;

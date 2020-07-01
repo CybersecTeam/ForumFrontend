@@ -1,7 +1,6 @@
 .forum_page {
   display: flex;
   height: 100%;
-  padding: 3rem;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;

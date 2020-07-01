@@ -1,9 +1,9 @@
 .navbar {
-  background-color: white;
+  background-color: #29559d;
   display: flex;
-  min-height: 5rem;
+  min-height: 8rem;
   align-items: center;
-  color: #202020;
+  color: white;
   justify-content: flex-start;
   font-size: 2rem;
   font-family: "Ubuntu-Bold";
