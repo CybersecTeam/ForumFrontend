@@ -1,8 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
 
 function App() {
+  const dummieRequest = () => {
+    const dummieData = {
+      nickname: "nickname",
+      title: "First forum",
+      forumBody: "Test purposes",
+    };
+    axios
+      .post(
+        "http://7ylxxzc3btuqec3iam7qgmokj6qljyaqwyvksa27t2e2jhauufa744id.onion/",
+        dummieData,
+        {
+          // receive two    parameter endpoint url ,form data
+        }
+      )
+      .then((res) => {
+        console.log("dummie response", res);
+      });
+  };
+  useEffect(() => {
+    dummieRequest();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
