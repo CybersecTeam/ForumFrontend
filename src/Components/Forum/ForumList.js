@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./Forum.css";
 import ForumBox from "./ForumBox";
+import Button from "antd/lib/button/button";
+import ForumModal from "Components/Forum/ForumModal";
 function ForumList() {
   const [showLogin, togglLoginCard] = useState(true);
-
+  const [showModal, setShowModal] = useState(false);
   const forumList = useSelector((state) => state.forum.forumList);
   console.log("forumList", forumList);
 
@@ -18,12 +20,21 @@ function ForumList() {
     return renderedForumList;
   };
 
+  const handleModal = () => {
+    setShowModal(!showModal);
+  };
+
   const renderedForumList = renderForumList();
   return (
     <div className="forumList">
+      <ForumModal visible={showModal} />
       <div className="title">
         <div className="title_item">Forums</div>
-        <div className="title_item">Dani button</div>
+        <div className="title_item">
+          <Button type="primary" onClick={handleModal}>
+            Crear nuevo post
+          </Button>
+        </div>
       </div>
       <div className="description">Select a forum</div>
       {renderedForumList}
