@@ -21,7 +21,10 @@ function ForumList() {
   const renderedForumList = renderForumList();
   return (
     <div className="forumList">
-      <div className="title">Forums</div>
+      <div className="title">
+        <div className="title_item">Forums</div>
+        <div className="title_item">Dani button</div>
+      </div>
       <div className="description">Select a forum</div>
       {renderedForumList}
     </div>
