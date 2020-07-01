@@ -1,4 +1,4 @@
-import { initialState } from "Redux/initialState";
+import { initialState } from "../initialState";
 
 /// node: forum
 const forumReducer = (state = initialState.forum, action) => {

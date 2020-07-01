@@ -1,4 +1,4 @@
-import { initialState } from "Redux/initialState";
+import { initialState } from "../initialState";
 
 const systemReducer = (state = initialState.system, action) => {
   switch (action.type) {

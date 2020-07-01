@@ -1,6 +1,6 @@
 import { ROOT_URL, instance } from "./apiConfig";
 
-export default class ApiUsers {
+export default class ApiRequests {
   static getUsers(action) {
     let url = `${ROOT_URL}/users/`;
     const params = new URLSearchParams();
