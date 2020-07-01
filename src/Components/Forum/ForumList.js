@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./Forum.css";
 import ForumBox from "./ForumBox";
 function ForumList() {

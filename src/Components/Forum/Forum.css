@@ -48,7 +48,7 @@
 .forum_detail_header {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: aliceblue;
   box-shadow: 0px 0px 9px 0px rgba(179, 179, 179, 1);
   min-height: 5rem;
   width: 100%;

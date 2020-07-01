@@ -4,22 +4,19 @@ import { delay } from "redux-saga/effects";
 
 // GET ADMIN SERVICES
 // params: page, limit, searchedText, sortBy, sortOrder, searchedLanguage
-function* getServicesSaga(action) {
+function* getForumListSaga(action) {
   yield put({
     type: "SET_LOADING",
-    loadingName: "serviceListLoading",
+    loadingName: "forumListLoading",
     loadingValue: true,
   });
   try {
-    const response = yield call(ApiRequests.getServices, action);
-    const { services, pages, count } = response.data.data;
+    const response = yield call(ApiRequests.getForumList, action);
+    const { forums } = response.data.data;
     yield put({
-      type: "SAVE_SERVICE_LIST",
-      serviceList: services,
-      count: count,
-      pages: pages,
+      type: "SAVE_FORUM_LIST",
+      forumList: forums,
     });
-
     yield delay(300);
     yield put({
       type: "SET_LOADING",
@@ -35,29 +32,29 @@ function* getServicesSaga(action) {
 }
 
 // Admin detail: all data of service
-function* getServiceDetail(action) {
+function* getForumDetail(action) {
   yield put({
     type: "SET_LOADING",
     loadingName: "serviceDetailLoading",
     loadingValue: true,
   });
   try {
-    const response = yield call(ApiRequests.getService, action);
+    const response = yield call(ApiRequests.getForumDetail, action);
     yield delay(300);
     yield put({
-      type: "SAVE_SERVICE_DETAIL",
-      serviceId: action.id,
-      serviceDetail: response.data.data.service,
+      type: "SAVE_FORUM_DETAIL",
+      forumId: action.id,
+      forumDetail: response.data.data.forum,
     });
   } catch (error) {}
   yield put({
     type: "SET_LOADING",
-    loadingName: "serviceDetailLoading",
+    loadingName: "forumDetailLoading",
     loadingValue: false,
   });
 }
 
 export const forumSagas = [
-  takeLatest("GET_SERVICES_SAGA", getServicesSaga),
-  takeLatest("GET_SERVICE_DETAIL_SAGA", getServiceDetail),
+  takeLatest("GET_FORUM_LIST_SAGA", getForumListSaga),
+  takeLatest("GET_FORUM_DETAIL_SAGA", getForumDetail),
 ];
