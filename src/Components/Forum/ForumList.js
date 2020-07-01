@@ -4,6 +4,7 @@ import "./Forum.css";
 import ForumBox from "./ForumBox";
 import Button from "antd/lib/button/button";
 import ForumModal from "Components/Forum/ForumModal";
+import PlusOutlined from "@ant-design/icons";
 function ForumList() {
   const [showLogin, togglLoginCard] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +32,7 @@ function ForumList() {
       <div className="title">
         <div className="title_item">Forums</div>
         <div className="title_item">
-          <Button type="primary" onClick={handleModal}>
+          <Button icon={<PlusOutlined />} type="primary" onClick={handleModal}>
             Crear nuevo post
           </Button>
         </div>
