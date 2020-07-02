@@ -15,7 +15,7 @@ export default class ApiRequests {
 
   static createForum(action) {
     const url = `${ROOT_URL}/forum`;
-    const request = instance.post(url, action.newUserInfo);
+    const request = instance.post(url, action.forum);
     return request;
   }
 }

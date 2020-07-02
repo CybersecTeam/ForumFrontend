@@ -32,20 +32,25 @@ function* getForumListSaga(action) {
 }
 
 // Admin detail: all data of service
-function* getForumDetail(action) {
+function* getForumDetailSaga(action) {
   yield put({
     type: "SET_LOADING",
     loadingName: "serviceDetailLoading",
     loadingValue: true,
   });
   try {
-    const response = yield call(ApiRequests.getForumDetail, action);
-    yield delay(300);
     yield put({
       type: "SAVE_FORUM_DETAIL",
       forumId: action.id,
-      forumDetail: response.data.data.forum,
+      forumDetail: "NO",
     });
+    const response = yield call(ApiRequests.getForumDetail, action);
+    yield delay(300);
+    // yield put({
+    //   type: "SAVE_FORUM_DETAIL",
+    //   forumId: action.id,
+    //   forumDetail: response.data.forums,
+    // });
   } catch (error) {}
   yield put({
     type: "SET_LOADING",
@@ -54,7 +59,36 @@ function* getForumDetail(action) {
   });
 }
 
+function* createForumSaga(action) {
+  yield put({
+    type: "SET_LOADING",
+    loadingName: "forumListLoading",
+    loadingValue: true,
+  });
+  try {
+    console.log("action", action);
+    const response = yield call(ApiRequests.createForum, action);
+    yield delay(300);
+    console.log("create response", response);
+    yield put({
+      type: "GET_FORUM_LIST_SAGA",
+    });
+
+    yield put({
+      type: "SET_LOADING",
+      loadingName: "serviceListLoading",
+      loadingValue: false,
+    });
+  } catch (error) {}
+  yield put({
+    type: "SET_LOADING",
+    loadingName: "serviceListLoading",
+    loadingValue: false,
+  });
+}
+
 export const forumSagas = [
   takeLatest("GET_FORUM_LIST_SAGA", getForumListSaga),
-  takeLatest("GET_FORUM_DETAIL_SAGA", getForumDetail),
+  takeLatest("GET_FORUM_DETAIL_SAGA", getForumDetailSaga),
+  takeLatest("CREATE_FORUM_SAGA", createForumSaga),
 ];

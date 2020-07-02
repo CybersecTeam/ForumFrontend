@@ -6,13 +6,26 @@ import ForumList from "../../Components/Forum/ForumList";
 import ForumDetail from "Components/Forum/ForumDetail";
 
 function ForumPage() {
+  const [selectedForumId, setSelectedForumId] = useState("");
+  const nickname = useSelector((state) => state.system.nickname);
+
+  console.log("selectedForumId", selectedForumId);
   const dispatch = useDispatch();
 
   const getForumListSaga = () => {
     dispatch({ type: "GET_FORUM_LIST_SAGA" });
   };
+
+  const createForumSaga = (forum) => {
+    console.log("createForumSaga", forum);
+    dispatch({ type: "CREATE_FORUM_SAGA", forum: forum });
+  };
+  const selectForum = (id) => {
+    setSelectedForumId(id);
+    dispatch({ type: "GET_FORUM_DETAIL_SAGA", id: selectedForumId });
+  };
+
   const forumList = useSelector((state) => state.forum.forumList);
-  const [selectedForumId, setSelectedForumId] = useState(true);
 
   useEffect(() => {
     getForumListSaga();
@@ -22,8 +35,12 @@ function ForumPage() {
     <div className="forum_page">
       <ForumList
         forumList={forumList}
-        setSelectedForumId={setSelectedForumId}
+        selectedForumId={selectedForumId}
+        selectForum={selectForum}
+        createForumSaga={createForumSaga}
+        nickname={nickname}
       ></ForumList>
+
       <ForumDetail selectedForumId={selectedForumId}></ForumDetail>
     </div>
   );

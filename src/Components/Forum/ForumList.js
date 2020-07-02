@@ -4,19 +4,28 @@ import "./Forum.css";
 import ForumBox from "./ForumBox";
 import Button from "antd/lib/button/button";
 import ForumModal from "Components/Forum/ForumModal";
-function ForumList() {
-  const [showLogin, togglLoginCard] = useState(true);
+
+function ForumList({
+  forumList,
+  setSelectedForumId,
+  selectForum,
+  createForumSaga,
+  nickname,
+}) {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const forumList = useSelector((state) => state.forum.forumList);
-  console.log("forumList", forumList);
 
   const renderForumList = () => {
     const renderedForumList = [];
     forumList.forEach((forumInfo, index) => {
       renderedForumList.push(
-        <ForumBox forumInfo={forumInfo} index={index}></ForumBox>
+        <ForumBox
+          forumInfo={forumInfo}
+          index={index}
+          selectForum={selectForum}
+          setSelectedForumId={setSelectedForumId}
+        ></ForumBox>
       );
     });
     return renderedForumList;
@@ -32,7 +41,12 @@ function ForumList() {
 
   const handleOk = () => {
     setShowModal(false);
-    console.log({ title: title, body: body });
+    createForumSaga({
+      nickname,
+      title,
+      forumBody: body,
+      tags: ["tag1", "tag2"],
+    });
   };
 
   const renderedForumList = renderForumList();

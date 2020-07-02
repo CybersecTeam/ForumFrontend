@@ -3,13 +3,15 @@ import styled from "styled-components";
 const ForumBox = styled.div`
   display: flex;
   background-color: ${(props) => (props.index % 2 === 0 ? "white" : "#F6F6F6")};
+
   flex-direction: row;
   min-height: 8rem;
   width: 100%;
   /* border-radius: 0.3rem; */
   /* border: 0.1rem solid #d1d1d1; */
   align-items: center;
-  border-left: 1rem solid darkturquoise;
+  border-left: ${(props) =>
+    props.isSelected ? "1rem solid blue;" : "1rem solid darkturquoise;"};
   padding: 3rem;
   font-size: 2rem;
   cursor: pointer;
