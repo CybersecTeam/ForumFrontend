@@ -71,7 +71,7 @@ function ForumDetail({ selectedForumId, addComment, nickname }) {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="forumNoDetail">
           <Empty></Empty>
         </div>
       )}
