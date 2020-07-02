@@ -12,7 +12,7 @@ function* getForumListSaga(action) {
   });
   try {
     const response = yield call(ApiRequests.getForumList, action);
-    const { forums } = response.data.data;
+    const { forums } = response.data;
     yield put({
       type: "SAVE_FORUM_LIST",
       forumList: forums,
