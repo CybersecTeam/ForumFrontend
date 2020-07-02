@@ -9,3 +9,8 @@
   font-family: "Ubuntu-Bold";
   padding: 2rem;
 }
+.navbar-title {
+  color: white !important;
+  display: flex;
+  flex: 1;
+}
