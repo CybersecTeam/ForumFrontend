@@ -13,7 +13,7 @@ function ForumDetail({ selectedForumId, addComment, nickname }) {
     addComment({
       creator: nickname,
       forum: selectedForumId,
-      comment,
+      content: comment,
     });
   };
 

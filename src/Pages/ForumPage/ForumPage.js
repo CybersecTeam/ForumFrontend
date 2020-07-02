@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "../pagesStyles.css";
 import ForumList from "../../Components/Forum/ForumList";
 import ForumDetail from "Components/Forum/ForumDetail";
@@ -31,6 +30,7 @@ function ForumPage() {
     console.log("createForumSaga", forum);
     dispatch({ type: "CREATE_FORUM_SAGA", forum: forum });
   };
+
   const selectForum = (id) => {
     setSelectedForumId(id);
     dispatch({ type: "GET_FORUM_DETAIL_SAGA", id: selectedForumId });
