@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import "./Forum.css";
 import { Empty, Form, Button, Input } from "antd";
 
@@ -16,29 +17,12 @@ function ForumDetail({ selectedForumId, addComment, nickname }) {
     });
   };
 
-  // const forumDetail = useSelector(
-  //   (state) => state.forum.forumDetail[selectedForumId]
-  // );
+  const forumDetail = useSelector(
+    (state) => state.forum.forumDetail[selectedForumId]
+  );
   // console.log("forumDetail", forumDetail, selectedForumId);
   const { TextArea } = Input;
 
-  const forumDetail = {
-    comments: [
-      {
-        _id: "5efcfec4a09818f9f3933ac8",
-        content: "Me parece que este foro esta muy bueno",
-        dateCreated: "2020-07-01T21:23:16.452Z",
-        __v: 0,
-      },
-    ],
-    tags: ["UNAL"],
-    _id: "5efcfb73a5d555f6d80a3fa9",
-    title: "Critica a este foro",
-    body: "Me gustaria saber sus opiniones sobre este foro",
-    creator: "prrrprimigeno",
-    dateCreated: "2020-07-01T21:09:07.583Z",
-    __v: 1,
-  };
   const renderComments = () => {
     const renderedComments = [];
     forumDetail.comments.forEach((comment) => {
