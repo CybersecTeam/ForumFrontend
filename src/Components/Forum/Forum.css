@@ -36,9 +36,7 @@
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  font-size: 2rem;
-  background-color: #202020;
-
+  font-size: 1.5rem;
   box-shadow: -7px 0px 3px 0px purple;
   align-items: flex-start;
   justify-content: flex-start;
@@ -59,13 +57,13 @@
   padding: 2rem;
   align-items: flex-start;
   /* border-left: 1rem solid darkturquoise; */
+  background-color: #202020;
 }
 .forum_detail_title {
   font-family: "Ubuntu-Bold";
   width: 100%;
   text-align: left;
-  font-size: 3rem;
-  padding: 1rem 0rem;
+  font-size: 2.5rem;
 }
 
 .forum_detail_tags {
@@ -97,7 +95,6 @@
 .comments_title {
   display: flex;
   width: 100%;
-  background: purple;
   padding: 1rem 2rem;
   color: white;
   font-family: "Ubuntu-Bold";
@@ -129,4 +126,5 @@
   border-radius: 50rem;
   font-size: 1.5rem;
   margin: 0.5rem;
+  padding: 0.2rem 1rem;
 }
