@@ -2,7 +2,7 @@
 
 export const initialState = {
   system: {
-    nickname: "",
+    nickname: "Anonymous",
     loadings: {},
   },
   forum: {

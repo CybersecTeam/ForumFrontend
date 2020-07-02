@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-
 import { configureStore } from "./Redux/configureStore";
-
+import "antd/dist/antd.css";
+import "./index.css";
+import "./custom_antd.css";
 const store = configureStore();
 
 ReactDOM.render(
