@@ -39,18 +39,13 @@ function* getForumDetailSaga(action) {
     loadingValue: true,
   });
   try {
+    const response = yield call(ApiRequests.getForumDetail, action);
+    yield delay(300);
     yield put({
       type: "SAVE_FORUM_DETAIL",
       forumId: action.id,
-      forumDetail: "NO",
+      forumDetail: response.data.forums,
     });
-    const response = yield call(ApiRequests.getForumDetail, action);
-    yield delay(300);
-    // yield put({
-    //   type: "SAVE_FORUM_DETAIL",
-    //   forumId: action.id,
-    //   forumDetail: response.data.forums,
-    // });
   } catch (error) {}
   yield put({
     type: "SET_LOADING",
