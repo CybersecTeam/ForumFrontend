@@ -39,6 +39,16 @@ export const initialState = {
             creator: "creator 2",
             dateCreated: "date created",
           },
+          {
+            content: "comentario 2 content",
+            creator: "creator 3",
+            dateCreated: "date created",
+          },
+          {
+            content: "comentario 3 content",
+            creator: "creator 4",
+            dateCreated: "date created",
+          },
         ],
         creator: "nickname",
         dateCreated: "01/01/1998",
