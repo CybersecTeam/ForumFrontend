@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./Forum.css";
+import { Empty } from "antd";
 
 function ForumDetail({ selectedForumId }) {
   const forumDetail = useSelector(
@@ -36,7 +37,9 @@ function ForumDetail({ selectedForumId }) {
           </div>
         </div>
       ) : (
-        <div>No detail</div>
+        <div>
+          <Empty></Empty>
+        </div>
       )}
     </div>
   );
