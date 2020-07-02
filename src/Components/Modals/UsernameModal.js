@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal, Form, Input } from "antd";
+
 export default (props) => {
   return (
     <Modal {...props}>

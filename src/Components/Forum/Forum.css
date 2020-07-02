@@ -81,3 +81,23 @@
   padding: 1rem;
   width: 100%;
 }
+
+.comments {
+  width: 100%;
+}
+
+.comments_title {
+  display: flex;
+  width: 100%;
+  background: #29559d;
+  padding: 1rem 2rem;
+  color: white;
+  font-family: "Ubuntu-Bold";
+}
+
+.comment_box {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  padding: 3rem;
+}

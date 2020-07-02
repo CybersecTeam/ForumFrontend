@@ -7,10 +7,21 @@ function ForumDetail({ selectedForumId }) {
     (state) => state.forum.forumDetail[selectedForumId]
   );
   console.log("forumDetail", forumDetail, selectedForumId);
+
+  const renderComments = () => {
+    const renderedComments = [];
+    forumDetail.comments.forEach((comment) => {
+      renderedComments.push(
+        <div className="comment_box">{comment.content}</div>
+      );
+    });
+    return renderedComments;
+  };
+
   return (
     <div className="forumDetail">
       {forumDetail ? (
-        <div>
+        <div className="forumDetail">
           <div className="forum_detail_header">
             <div className="forum_detail_title">
               Este es el titulo de mi foro anonimo
@@ -20,15 +31,8 @@ function ForumDetail({ selectedForumId }) {
             <div className="forum_detail_description">descripcion</div>
           </div>
           <div className="comments">
-            {/* {forumDetail.map((comment) => (
-              <>
-                <div style={{ marginTop: "5%" }}>
-                  Usuario: {comment.creator}
-                </div>
-                <div>Comentario: {comment.content}</div>
-                <div>Fecha: {comment.dateCreated}</div>
-              </>
-            ))} */}
+            <div className="comments_title">Comments</div>
+            {renderComments()}
           </div>
         </div>
       ) : (

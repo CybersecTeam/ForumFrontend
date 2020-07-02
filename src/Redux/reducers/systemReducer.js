@@ -9,7 +9,11 @@ const systemReducer = (state = initialState.system, action) => {
         ...state,
         loadings: loadingState,
       };
-
+    case "SAVE_USERNAME_REDUCER":
+      return {
+        ...state,
+        nickname: action.nickname,
+      };
     default:
       return state;
   }
