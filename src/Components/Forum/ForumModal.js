@@ -11,10 +11,16 @@ export default (props) => {
     <Modal {...props}>
       <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
         <Form.Item label="Title">
-          <Input />
+          <Input
+            value={props.titleValue}
+            onChange={(e) => props.titleHandler(e.target.value)}
+          />
         </Form.Item>
         <Form.Item label="Body">
-          <Input.TextArea />
+          <Input.TextArea
+            value={props.bodyValue}
+            onChange={(e) => props.bodyHandler(e.target.value)}
+          />
         </Form.Item>
       </Form>
     </Modal>

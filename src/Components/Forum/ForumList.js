@@ -4,10 +4,11 @@ import "./Forum.css";
 import ForumBox from "./ForumBox";
 import Button from "antd/lib/button/button";
 import ForumModal from "Components/Forum/ForumModal";
-import PlusOutlined from "@ant-design/icons";
 function ForumList() {
   const [showLogin, togglLoginCard] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
   const forumList = useSelector((state) => state.forum.forumList);
   console.log("forumList", forumList);
 
@@ -25,14 +26,31 @@ function ForumList() {
     setShowModal(!showModal);
   };
 
+  const handleCancel = () => {
+    setShowModal(false);
+  };
+
+  const handleOk = () => {
+    setShowModal(false);
+    console.log({ title: title, body: body });
+  };
+
   const renderedForumList = renderForumList();
   return (
     <div className="forumList">
-      <ForumModal visible={showModal} />
+      <ForumModal
+        visible={showModal}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        bodyValue={body}
+        titleValue={title}
+        bodyHandler={setBody}
+        titleHandler={setTitle}
+      />
       <div className="title">
         <div className="title_item">Forums</div>
         <div className="title_item">
-          <Button icon={<PlusOutlined />} type="primary" onClick={handleModal}>
+          <Button type="primary" onClick={handleModal}>
             Crear nuevo post
           </Button>
         </div>
