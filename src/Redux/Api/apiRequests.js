@@ -18,4 +18,10 @@ export default class ApiRequests {
     const request = instance.post(url, action.forum);
     return request;
   }
+
+  static createComment(action) {
+    const url = `${ROOT_URL}/comment`;
+    const request = instance.post(url, action.comment);
+    return request;
+  }
 }

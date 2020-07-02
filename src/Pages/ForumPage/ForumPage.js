@@ -12,14 +12,15 @@ function ForumPage() {
   const [username, setUsername] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  const handleModal = () => {
-    setShowModal(!showModal);
-  };
   console.log("selectedForumId", selectedForumId);
   const dispatch = useDispatch();
 
   const getForumListSaga = () => {
     dispatch({ type: "GET_FORUM_LIST_SAGA" });
+  };
+
+  const addComment = (commentData) => {
+    dispatch({ type: "ADD_COMMENT_SAGA", comment: commentData });
   };
 
   const saveUsernameReducer = (nickname) => {
@@ -66,7 +67,11 @@ function ForumPage() {
         createForumSaga={createForumSaga}
         nickname={nickname}
       ></ForumList>
-      <ForumDetail selectedForumId={selectedForumId}></ForumDetail>
+      <ForumDetail
+        selectedForumId={selectedForumId}
+        addComment={addComment}
+        nickname={nickname}
+      ></ForumDetail>
     </div>
   );
 }

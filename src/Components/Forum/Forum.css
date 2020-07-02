@@ -38,9 +38,10 @@
   align-items: flex-start;
   font-size: 2rem;
   background-color: #202020;
-  align-items: center;
-  justify-content: center;
+
   box-shadow: -7px 0px 3px 0px purple;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .App-logo {
@@ -75,6 +76,10 @@
 .forum_detail_username {
   display: flex;
   padding: 1rem;
+  background: #142168;
+  border-radius: 50rem;
+  font-size: 1.5rem;
+  margin: 0.5rem;
 }
 
 .forum_detail_description {
@@ -82,17 +87,17 @@
   border-top: 0.1rem solid #d1d1d1;
   padding: 1rem;
   width: 100%;
+  margin: 0.5rem;
 }
 
 .comments {
   width: 100%;
-  background-color: purple;
 }
 
 .comments_title {
   display: flex;
   width: 100%;
-  background: #202020;
+  background: purple;
   padding: 1rem 2rem;
   color: white;
   font-family: "Ubuntu-Bold";
@@ -103,6 +108,11 @@
   display: flex;
   padding: 3rem;
   border-bottom: 0.1rem solid purple;
+  background-color: #202020;
+}
+
+.create_comment {
+  padding: 1rem;
 }
 
 .ant-btn-primary {
@@ -112,4 +122,11 @@
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
   -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+.forum_detail_username {
+  background: #142168;
+  border-radius: 50rem;
+  font-size: 1.5rem;
+  margin: 0.5rem;
 }

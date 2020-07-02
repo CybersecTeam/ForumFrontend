@@ -82,8 +82,37 @@ function* createForumSaga(action) {
   });
 }
 
+function* createCommentSaga(action) {
+  yield put({
+    type: "SET_LOADING",
+    loadingName: "forumListLoading",
+    loadingValue: true,
+  });
+  try {
+    console.log("action", action);
+    const response = yield call(ApiRequests.createComment, action);
+    yield delay(300);
+    console.log("create comment resp", response);
+    yield put({
+      type: "GET_FORUM_DETAIL_SAGA",
+      id: action.comment.forum,
+    });
+    yield put({
+      type: "SET_LOADING",
+      loadingName: "serviceListLoading",
+      loadingValue: false,
+    });
+  } catch (error) {}
+  yield put({
+    type: "SET_LOADING",
+    loadingName: "serviceListLoading",
+    loadingValue: false,
+  });
+}
+
 export const forumSagas = [
   takeLatest("GET_FORUM_LIST_SAGA", getForumListSaga),
   takeLatest("GET_FORUM_DETAIL_SAGA", getForumDetailSaga),
   takeLatest("CREATE_FORUM_SAGA", createForumSaga),
+  takeLatest("ADD_COMMENT_SAGA", createCommentSaga),
 ];
